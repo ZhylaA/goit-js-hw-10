@@ -7,10 +7,9 @@ import fetchCountries from './fetchCountries';
 const DEBOUNCE_DELAY = 300;
 const countryInput = document.querySelector('#search-box');
 
-
-// const options = {
-//     headers:{name,}
-// }
-const url = 'https://restcountries.com/';
-
-fetch(url).then(r => r.json()).then(console.log);
+countryInput.addEventListener('input', onSearch);
+function onSearch(e) {
+    e.preventDefault();
+    const searchQuery = e.currentTarget.elements.query.value;
+    console.log(searchQuery)
+};
